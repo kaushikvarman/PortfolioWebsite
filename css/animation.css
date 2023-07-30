@@ -1,0 +1,18 @@
+/* Hover Animation */
+
+@keyframes hover {
+    0% {
+        /* At initial level of animation */
+        transform: translate(0);
+
+    }
+    50% {
+        /* animation is in the middle */
+        transform: translate(-5px);
+    }
+    100% {
+        /* At end level of animation */
+        /* at 100% we go back to start */
+        transform: translate(0);
+    }
+}

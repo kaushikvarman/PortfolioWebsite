@@ -1,0 +1,169 @@
+ /* Custom Font */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+
+/* General */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+h1,h2,h5,p{
+    margin: 0;
+}
+
+.icon{
+    height: 2rem;
+    width: 2rem;
+    margin: 0 0.5rem;
+}
+
+/* Hero */
+
+#hero{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* A common way to position our div to center */
+    transform: translate(-50%,-50%); 
+    text-align: center ;
+
+}
+
+#hero__animation {
+    animation-name: hover;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    height: 25rem;
+    width: 25rem;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+#hero__animation__img{
+    background-image: var(--tl-1);
+    height: 100%;
+    background-position: center;
+    background-size: cover; 
+}
+
+/* Common Grid Styles */
+
+#grid{
+    position: absolute;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    width: 100vw;
+}
+
+#grid__TL__btn,
+#grid__TR__btn,
+#grid__BL__btn,
+#grid__BR__btn{
+    height: 18.75rem;
+    width: 18.75rem;
+    background: var(--bg);
+    color: var(--text);
+    border: var(--border);
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    text-align: center;
+    font-weight: 800;
+    font-size: 1.5rem;
+    z-index: 100;
+    border-radius: 40%;
+    transition: transform 0.2s ease-in-out;
+}
+
+#grid__TL__content,
+#grid__TR__content,
+#grid__BL__content,
+#grid__BR__content{
+    position: absolute;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    color: var(--text-alt);
+}
+
+#grid__TL__btn,
+#grid__TR__btn{
+    padding-bottom: 0.5rem;
+    align-items: flex-end;
+}
+
+#grid__BL__btn,
+#grid__BR__btn{
+    padding-top: 0.5rem;
+}
+
+#grid__TL__btn:active,
+#grid__BR__btn:active{
+    transform: rotate(-45deg) scale(1.05);
+}
+#grid__TR__btn:active,
+#grid__BL__btn:active{
+    transform: rotate(45deg) scale(1.05);
+}
+
+/* Top left position */
+
+#grid__TL__btn{
+    top: -11.5rem;
+    left: -11.5rem;
+    transform: rotate(-45deg);
+}
+
+#grid__TL__content{
+    width: 30vw;
+    top: 10vh;
+    left: 0;
+    transform: translateX(-100vw) translateY(-100vh);
+}
+
+article{
+    background: #dcf8f8;
+    font-size: 0.8rem;
+    list-style: none;
+    border: var(--border);
+    border-radius: 2rem;
+    padding: 0.5rem;
+    margin: 1rem;
+    width: 8.75rem;
+    min-width: 8.75rem;
+}
+
+article h2{
+    font-size: 1rem;
+    padding: 0.3rem;
+}
+
+article p {
+    padding-bottom: 0.3rem;
+}
+
+article h2, article p{
+    color: #333;
+}
+
+.cards{
+    padding: 0;
+}
+
+.cards__content{
+    display: flex;
+    align-items: center;
+    margin: 0rem;
+}

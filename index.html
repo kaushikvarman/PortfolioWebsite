@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaushik-Dev Portfolio</title>
+
+    <link rel="icon" type="image/x-icon" href="/assets/icons/favicon.ico" />
+
+    <script src="/js/animation.js" defer></script>
+    <script src="/js/color-mode.js" defer></script>
+    <script src="/js/project-slideshow.js" defer></script>
+
+    <!-- defer helps us to load the complete html first and then load js files -->
+
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/animation.css">
+    <link rel="stylesheet" href="/css/color-mode.css">
+    
+</head>
+<body>
+    <div id="hero">
+        <h5>Hello I'm</h5>
+        <h1>Kaushik Varma</h1>
+        <p>Backend Dev and Data Engineer</p>
+        <!--Using BEM naming convention -->
+        <div id="hero__animation">
+            <div id="hero__animation__img"></div>
+        </div>
+    </div>
+    <nav id="grid">
+        <div id="grid__TL">
+            <div id="grid__TL__btn">About</div>
+            <div id="grid__TL__content">
+                <div class="cards">
+                    <div class="cards__content">
+                        <article>
+                            <img src="./assets/icons/experience.png" alt="Experience Icon" class="icon">
+                            <h2>Experience</h2>
+                            <p>1year+ <br> exp as a SDE</p>
+                        </article>
+                        <p class="cards__content__text">
+                            Worked as a Magento developer at techm
+                        </p>
+                    </div>
+                    <div class="cards__content">
+                        <article>
+                            <img src="./assets/icons/education.png" alt="Experience Icon" class="icon">
+                            <h2>Education</h2>
+                            <p>Completed my masters <br> in cs</p>
+                        </article>
+                        <p class="cards__content__text">
+                            Worked as a Magento developer at techm
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="color-mode">
+        <div id="toggle-button" class="icon"></div>
+    </div>
+
+</body>
+</html>
