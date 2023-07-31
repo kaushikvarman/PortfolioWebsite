@@ -1,3 +1,12 @@
+/* General animation settings */
+
+.animate-top-left, .reverse-animate-top-left,
+.animate-top-right, .reverse-animate-top-right {
+    animation-fill-mode: forwards;
+    animation-duration: 0.2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+}
 /* Hover Animation */
 
 @keyframes hover {
@@ -14,5 +23,121 @@
         /* At end level of animation */
         /* at 100% we go back to start */
         transform: translate(0);
+    }
+}
+/* Animate Top left */
+
+.animate-top-left {
+    animation-name: top-left;
+}
+
+.reverse-animate-top-left {
+    animation-name: reverse-top-left;
+}
+
+.animate-top-right {
+    animation-name: top-right;
+}
+ 
+.reverse-animate-top-right {
+    animation-name: reverse-top-right;   
+}
+
+@keyframes top-left {
+    0% {
+        /* At initial level of animation */
+        background-image: var(--tl-1);
+
+    }
+    25% {
+        /* animation is in the middle */
+        background-image: var(--tl-2);
+    }
+    50% {
+        /* animation is in the middle */
+        background-image: var(--tl-3);
+    }
+    75% {
+        /* animation is in the middle */
+        background-image: var(--tl-4);
+    }
+    100% {
+        /* At end level of animation */
+        /* at 100% we go back to start */
+        background-image: var(--tl-5);
+    }
+}
+@keyframes reverse-top-left {
+    0% {
+        /* At initial level of animation */
+        background-image: var(--tl-5);
+
+    }
+    25% {
+        /* animation is in the middle */
+        background-image: var(--tl-4);
+    }
+    50% {
+        /* animation is in the middle */
+        background-image: var(--tl-3);
+    }
+    75% {
+        /* animation is in the middle */
+        background-image: var(--tl-2);
+    }
+    100% {
+        /* At end level of animation */
+        /* at 100% we go back to start */
+        background-image: var(--tl-1);
+    }
+}
+
+/* animating top right */
+@keyframes top-right {
+    0% {
+        /* At initial level of animation */
+        background-image: var(--tr-1);
+
+    }
+    25% {
+        /* animation is in the middle */
+        background-image: var(--tr-2);
+    }
+    50% {
+        /* animation is in the middle */
+        background-image: var(--tr-3);
+    }
+    75% {
+        /* animation is in the middle */
+        background-image: var(--tr-4);
+    }
+    100% {
+        /* At end level of animation */
+        /* at 100% we go back to start */
+        background-image: var(--tr-5);
+    }
+}
+@keyframes reverse-top-right {
+    0% {
+        /* At initial level of animation */
+        background-image: var(--tr-5);
+
+    }
+    25% {
+        /* animation is in the middle */
+        background-image: var(--tr-4);
+    }
+    50% {
+        /* animation is in the middle */
+        background-image: var(--tr-3);
+    }
+    75% {
+        /* animation is in the middle */
+        background-image: var(--tr-2);
+    }
+    100% {
+        /* At end level of animation */
+        /* at 100% we go back to start */
+        background-image: var(--tr-1);
     }
 }

@@ -48,7 +48,102 @@ window.addEventListener("resize",handleWindowResize);
 
 //handleWindowResize is a function which handles the styling when resizing window
 function handleWindowResize(){
+    switch (activeCorner) {
+        case "top-left":
+            //TL code
+            if (window.innerWidth  <= 1100) {
+                //If width less than 1100 ..it creates and mobile screen
+                tlActive = "translateX(0) translateY(0)";
+                TLContent.style.transform = "translateX(0vw ) translateY(0)";
+                TLContent.style.width = "100vw";
+                TLContent.style.height = "100vh";
+                TLContent.style.top = "0";
+                TLContent.style.display = "flex";
+                TLContent.style.alignItems = "center";
+                TLContent.style.justifyContent = "center";
+                TLContent.style.background = "var(--bg-transparent)";
+                TLContent.style.zIndex = "200";
+                TLBtn.style.zIndex = "300";
+                BLBtn.style.zIndex = "100";
+                TRBtn.style.zIndex = "100";
+                // BRBtn.style.zIndex = "100";
+            } else {
+                tlActive = "translateX(5vw ) translateY(0)";
+                TLContent.style.transform = "translateX(5vw ) translateY(0)";
+                TLContent.style.width = "30vw";
+                TLContent.style.height = "0";
+                TLContent.style.top = "10vh";
+                TLContent.style.display = "block";
+            }
+            break;
 
+        case "top-right":
+            //TR code
+            if (window.innerWidth  <= 1100) {
+                //If width less than 1100 ..it creates and mobile screen
+                trActive = "translateX(0) translateY(0)";
+                TRContent.style.transform = "translateX(0vw ) translateY(0)";
+                TRContent.style.width = "100vw";
+                TRContent.style.height = "100vh";
+                TRContent.style.top = "0";
+                TRContent.style.display = "flex";
+                TRContent.style.alignItems = "center";
+                TRContent.style.justifyContent = "center";
+                TRContent.style.background = "var(--bg-transparent)";
+                TRContent.style.zIndex = "200";
+                TRBtn.style.zIndex = "300";
+                BLBtn.style.zIndex = "100";
+                TLBtn.style.zIndex = "100";
+                // BRBtn.style.zIndex = "100";
+            } else {
+                trActive = "translateX(-5vw ) translateY(0)";
+                TRContent.style.transform = "translateX(-5vw ) translateY(0)";
+                TRContent.style.width = "30vw";
+                TRContent.style.height = "0";
+                TRContent.style.top = "10vh";
+                TRContent.style.display = "block";
+            }
+            break;
+        case "bottom-left":
+            if (window.innerWidth  <= 600) {
+                //If width less than 1100 ..it creates and mobile screen
+                blActive = "translateX(0) translateY(0)";
+                BLContent.style.transform = "translateX(0vw ) translateY(0)";
+                BLContent.style.width = "100vw";
+                BLContent.style.height = "100vh";
+                BLContent.style.top = "0";
+                BLContent.style.display = "flex";
+                BLContent.style.alignItems = "center";
+                BLContent.style.justifyContent = "center";
+                BLContent.style.background = "var(--bg-transparent)";
+                BLContent.style.zIndex = "200";
+                BLBtn.style.zIndex = "300";
+                TRBtn.style.zIndex = "100";
+                TLBtn.style.zIndex = "100";
+                // BRBtn.style.zIndex = "100";
+                
+            } else if(window.innerWidth  <= 1100) {
+                blActive = "translateX(-5vw ) translateY(0)";
+                BLContent.style.transform = "translateX(-5vw ) translateY(0)";
+                BLContent.style.width = "30vw";
+                BLContent.style.height = "0";
+                BLContent.style.top = "10vh";
+                BLContent.style.display = "block";
+            } else {
+                blActive = "translateX(-5vw ) translateY(0)";
+                BLContent.style.transform = "translateX(-5vw ) translateY(0)";
+                BLContent.style.width = "30vw";
+                BLContent.style.height = "0";
+                BLContent.style.top = "10vh";
+                BLContent.style.display = "block";   
+            }
+            break;
+        case "bottom-right":
+            //BR code
+            break;
+        
+        default:
+    }
 }
 
 // variable to store reverse animations, ready to be playes
@@ -57,6 +152,8 @@ let lastReverseAnimation = "";
 //play animation function
 
 function playAnimation(animation, reverseAnimation) {
+    //remove all the animation classes from heroImage
+    heroImage.className = "";
     if(lastReverseAnimation !== ""){
     //    clicked some corner and need to reverse animate 
         heroImage.classList.add(lastReverseAnimation);
@@ -73,7 +170,44 @@ function playAnimation(animation, reverseAnimation) {
 }
 
 function playClosingAnimation(reverseAnimation) {
+    TLBtn.innerHTML = "About"
+    TRBtn.innerHTML = "Experience"
+    BLBtn.innerHTML = "Projects"
+    // BRBtn.innerHTML = "Contact"
 
+    switch (activeCorner) {
+        case "top-left":
+            TLBtn.style.background = bgColor; 
+            TLBtn.style.color = textColor; 
+            TLContent.style.transform = tlHidden;
+            break; 
+        case "top-right":
+            TRBtn.style.background = bgColor; 
+            TRBtn.style.color = textColor; 
+            TRContent.style.transform = trHidden;
+            break; 
+        case "bottom-left":
+            BLBtn.style.background = bgColor; 
+            BLBtn.style.color = textColorColor; 
+            BLContent.style.transform = blHidden;
+            break; 
+        // case "bottom-right":
+        //     BRBtn.style.background = bgColor; 
+        //     BRBtn.style.color = textColorColor; 
+        //     BRContent.style.transform = brHidden;
+        //     break; 
+        
+        default:
+    }
+
+    heroImage.className = "";
+    lastReverseAnimation = "";
+    activeCorner = "";
+    heroImage.classList.add(reverseAnimation);
+    setTimeout(function () {
+        heroImage.classList.remove(reverseAnimation);
+
+    },200)
 }
  
 // OnClick corner TL button function
@@ -83,7 +217,7 @@ TLBtn.onclick = function (){
     } else {
         TRBtn.innerHTML = "Experience"; 
         BLBtn.innerHTML = "Projects";
-        BRBtn.innerHTML = "Contact;";
+        // BRBtn.innerHTML = "Contact";
 
         //setting active corner
         activeCorner = "top-left";
@@ -96,20 +230,20 @@ TLBtn.onclick = function (){
         TLBtn.style.background = bgColorAlt;
         TRBtn.style.background = bgColor;
         BLBtn.style.background = bgColor;
-        BRBtn.style.background = bgColor;
+        // BRBtn.style.background = bgColor;
         
         // change text colors
         TLBtn.style.Color = textColorAlt;
         TRBtn.style.Color = textColor;
         BLBtn.style.Color = textColor;
-        BRBtn.style.Color = textColor;
+        // BRBtn.style.Color = textColor;
         
         // Chnage position of the corner content
         // If one corner is active ..other corners must be hidden
         TLContent.style.transform = tlActive; 
         TRContent.style.transform = trHidden;
         BLContent.style.transform = blHidden;
-        BRContent.style.transform = brHidden;
+        // BRContent.style.transform = brHidden;
 
     }
 }
@@ -120,11 +254,12 @@ TRBtn.onclick = function (){
     } else {
         TLBtn.innerHTML = "About"; 
         BLBtn.innerHTML = "Projects";
-        BRBtn.innerHTML = "Contact;";
+        // BRBtn.innerHTML = "Contact";
+        
 
         // setting active corner
         activeCorner = "top-right";
-        TLBtn.innerHTML = "&uarr;<br/>Experience";
+        TRBtn.innerHTML = "&uarr;<br/>Experience";
 
         handleWindowResize();
         playAnimation("animate-top-right","reverse-animate-top-right");
@@ -133,20 +268,20 @@ TRBtn.onclick = function (){
         TLBtn.style.background = bgColor;
         TRBtn.style.background = bgColorAlt;
         BLBtn.style.background = bgColor;
-        BRBtn.style.background = bgColor;
+        // BRBtn.style.background = bgColor;
         
         // change text colors
         TLBtn.style.Color = textColor;
         TRBtn.style.Color = textColorAlt;
         BLBtn.style.Color = textColor;
-        BRBtn.style.Color = textColor;
+        // BRBtn.style.Color = textColor;
         
         // Chnage position of the corner content
         // If one corner is active ..other corners must be hidden
         TLContent.style.transform = tlHidden; 
         TRContent.style.transform = trActive;
         BLContent.style.transform = blHidden;
-        BRContent.style.transform = brHidden;
+        // BRContent.style.transform = brHidden;
 
     }
 }
@@ -157,7 +292,7 @@ BLBtn.onclick = function (){
     } else {
         TLBtn.innerHTML = "About"; 
         TRBtn.innerHTML = "Experience";
-        BRBtn.innerHTML = "Contact";
+        // BRBtn.innerHTML = "Contact";
 
         // Setting active corner
         activeCorner = "bottom-left";
@@ -170,57 +305,57 @@ BLBtn.onclick = function (){
         TLBtn.style.background = bgColor;
         TRBtn.style.background = bgColor;
         BLBtn.style.background = bgColorAlt;
-        BRBtn.style.background = bgColor;
+        // BRBtn.style.background = bgColor;
         
         // change text colors
         TLBtn.style.Color = textColor;
         TRBtn.style.Color = textColor;
         BLBtn.style.Color = textColorAlt;
-        BRBtn.style.Color = textColor;
+        // BRBtn.style.Color = textColor;
         
         // Chnage position of the corner content
         // If one corner is active ..other corners must be hidden
         TLContent.style.transform = tlHidden; 
         TRContent.style.transform = trHidden;
         BLContent.style.transform = blActive;
-        BRContent.style.transform = brHidden;
+        // BRContent.style.transform = brHidden;
 
     }
 }
-BRBtn.onclick = function (){
-    if (activeCorner === "bottom-right"){
-        playClosingAnimation("reverse-animate-bottom-right");
-    } else {
-        TLBtn.innerHTML = "About"; 
-        TRBtn.innerHTML = "Experience";
-        BRBtn.innerHTML = "Projects";
+// BRBtn.onclick = function (){
+//     if (activeCorner === "bottom-right"){
+//         playClosingAnimation("reverse-animate-bottom-right");
+//     } else {
+//         TLBtn.innerHTML = "About"; 
+//         TRBtn.innerHTML = "Experience";
+//         BRBtn.innerHTML = "Projects";
 
-        // Setting active corner
-        activeCorner = "bottom-right";
-        BRBtn.innerHTML = "Contact<br/>&darr";
+//         // Setting active corner
+//         activeCorner = "bottom-right";
+//         BRBtn.innerHTML = "Contact<br/>&darr";
 
-        handleWindowResize();
-        playAnimation("animate-bottom-right","reverse-animate-bottom-right");
+//         handleWindowResize();
+//         playAnimation("animate-bottom-right","reverse-animate-bottom-right");
 
-        // Change background colors
-        TLBtn.style.background = bgColor;
-        TRBtn.style.background = bgColor;
-        BLBtn.style.background = bgColor;
-        BRBtn.style.background = bgColorAlt;
+//         // Change background colors
+//         TLBtn.style.background = bgColor;
+//         TRBtn.style.background = bgColor;
+//         BLBtn.style.background = bgColor;
+//         BRBtn.style.background = bgColorAlt;
         
-        // change text colors
-        TLBtn.style.Color = textColor;
-        TRBtn.style.Color = textColor;
-        BLBtn.style.Color = textColor;
-        BRBtn.style.Color = textColorAlt;
+//         // change text colors
+//         TLBtn.style.Color = textColor;
+//         TRBtn.style.Color = textColor;
+//         BLBtn.style.Color = textColor;
+//         BRBtn.style.Color = textColorAlt;
         
-        // Chnage position of the corner content
-        // If one corner is active ..other corners must be hidden
-        TLContent.style.transform = tlHidden; 
-        TRContent.style.transform = trHidden;
-        BLContent.style.transform = blHidden;
-        BRContent.style.transform = brActive;
+//         // Chnage position of the corner content
+//         // If one corner is active ..other corners must be hidden
+//         TLContent.style.transform = tlHidden; 
+//         TRContent.style.transform = trHidden;
+//         BLContent.style.transform = blHidden;
+//         BRContent.style.transform = brActive;
 
-    }
-}
+//     }
+// }
 
