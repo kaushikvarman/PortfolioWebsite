@@ -1,7 +1,9 @@
 /* General animation settings */
 
 .animate-top-left, .reverse-animate-top-left,
-.animate-top-right, .reverse-animate-top-right {
+.animate-top-right, .reverse-animate-top-right,
+.animate-bottom-left, .reverse-animate-bottom-left,
+.animate-bottom-right, .reverse-animate-bottom-right {
     animation-fill-mode: forwards;
     animation-duration: 0.2s;
     animation-iteration-count: 1;
@@ -23,6 +25,7 @@
         /* At end level of animation */
         /* at 100% we go back to start */
         transform: translate(0);
+        
     }
 }
 /* Animate Top left */
@@ -42,6 +45,16 @@
 .reverse-animate-top-right {
     animation-name: reverse-top-right;   
 }
+
+.animate-bottom-left {
+    animation-name: bottom-left;
+}
+
+.reverse-animate-bottom-left {
+    animation-name: reverse-bottom-left;
+}
+
+
 
 @keyframes top-left {
     0% {
@@ -141,3 +154,96 @@
         background-image: var(--tr-1);
     }
 }
+
+@keyframes bottom-left {
+    0% {
+        /* At initial level of animation */
+        background-image: var(--bl-1);
+
+    }
+    25% {
+        /* animation is in the middle */
+        background-image: var(--bl-2);
+    }
+    50% {
+        /* animation is in the middle */
+        background-image: var(--bl-3);
+    }
+    75% {
+        /* animation is in the middle */
+        background-image: var(--bl-4);
+    }
+    100% {
+        /* At end level of animation */
+        /* at 100% we go back to start */
+        background-image: var(--bl-5);
+    }
+}
+@keyframes reverse-bottom-left {
+    0% {
+        /* At initial level of animation */
+        background-image: var(--bl-5);
+
+    }
+    25% {
+        /* animation is in the middle */
+        background-image: var(--bl-4);
+    }
+    50% {
+        /* animation is in the middle */
+        background-image: var(--bl-3);
+    }
+    75% {
+        /* animation is in the middle */
+        background-image: var(--bl-2);
+    }
+    100% {
+        /* At end level of animation */
+        /* at 100% we go back to start */
+        background-image: var(--bl-1);
+    }
+}
+
+.animate-bottom-right {
+    animation-name: bottom-right;
+}
+
+.reverse-animate-bottom-right {
+    animation-name: reverse-bottom-right;
+}
+
+@keyframes bottom-right {
+    0% {
+      background-image: var(--br-1);
+    }
+    25% {
+      background-image: var(--br-2);
+    }
+    50% {
+      background-image: var(--br-3);
+    }
+    75% {
+      background-image: var(--br-4);
+    }
+    100% {
+      background-image: var(--br-5);
+    }
+  }
+  
+@keyframes reverse-bottom-right {
+    0% {
+      background-image: var(--br-5);
+    }
+    25% {
+      background-image: var(--br-4);
+    }
+    50% {
+      background-image: var(--br-3);
+    }
+    75% {
+      background-image: var(--br-2);
+    }
+    100% {
+      background-image: var(--br-1);
+    }
+  }

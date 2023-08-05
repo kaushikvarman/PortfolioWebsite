@@ -235,11 +235,11 @@ article h2, article p{
     width: 15rem;
     bottom: 15vh;
     left: 0;
-    /* transform: translate(-100vw) translateY(100vh); */
+    transform: translate(-100vw) translateY(100vh);
 }
 
 .project {
-    width: 100%;
+    width: 70%;
     display: flex;
     flex-wrap: wrap;
     border-radius: 2rem;
@@ -299,3 +299,31 @@ button{
     cursor: pointer;
 }
 
+#grid__BR__btn{
+    bottom: -11.5rem;
+    right: -11.5rem;
+    transform: rotate(-45deg);
+}
+
+#grid__BR__content {
+    bottom: 0;
+    right: 0vw;
+    /* height: 10rem; */
+    transform: translateX(100vw) translateY(100vh);
+}
+
+#grid__BR__content div {
+    display: flex;
+    margin: 0.5rem auto;
+    gap: 1.2rem;
+    width: 12rem;
+}
+
+.contact-text{
+    color: var(--text);
+}
+
+.btn-contact {
+    border: var(--border);
+    border-radius: 2rem;
+}
